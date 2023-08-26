@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+    <meta name="description" content="test" />
+    <meta name="keywords" content="test" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="gen.js"></script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="naglowek"><h1> Generator haseł </h1> </div>
+        <fieldset>
+            <legend> Adres strony</legend>
+            <div><label><input type="text" name="adress" /></label></div>
+        </fieldset>
+        <fieldset>
+            <legend> Nazwa użytkownika</legend>
+            <div><label><input type="text" name="username" /></label></div>
+        </fieldset>
+        <fieldset>
+            <legend> Główne hasło</legend>
+            <div><label><input type="password" name="password" /></label></div>
+        </fieldset>
+        <fieldset>
+            <legend> Liczba iteracji</legend>
+            <div><label><input type="number" value="1" min="1" step="1" name="number_of_iterations" /></label></div>
+        </fieldset>
+        <fieldset>
+            <legend> Wygenerowane hasło</legend>
+            <div><div id="result"></div><label><input id="przycisk" value="generuj" type="button" onclick="test()" /></label></div>
+        </fieldset>
+    </div>
+</body>
+</html>
