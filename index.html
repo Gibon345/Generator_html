@@ -11,9 +11,26 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!--script-- type="text/javascript" src="gen.js"></!--script--> <!-- not working on android-->
     <script>
-        alert("test");
+        function hash(string) {
+            const utf8 = new TextEncoder().encode(string);
+            return crypto.subtle.digest('SHA-256', utf8).then((hashBuffer) => {
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray
+                    .map((bytes) => bytes.toString(16).padStart(2, '0'))
+                    .join('');
+                return hashHex;
+            });
+        }
         function test() {
-            document.getElementById("result").innerHTML = "test";
+            var adress = document.getElementById("adress").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var number_of_iterations = document.getElementById("number_of_iterations").value;
+            var s = adress + username + password + number_of_iterations;
+
+            
+            hash(s).then((hex) => document.getElementById("result").innerHTML = hex);
+            
         }
     </script>
     <style>
@@ -41,19 +58,19 @@
         <div id="naglowek"><h1> Generator haseł </h1> </div>
         <fieldset>
             <legend> Adres strony</legend>
-            <div><label><input type="text" name="adress" /></label></div>
+            <div><label><input type="text" id="adress" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Nazwa użytkownika</legend>
-            <div><label><input type="text" name="username" /></label></div>
+            <div><label><input type="text" id="username" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Główne hasło</legend>
-            <div><label><input type="password" name="password" /></label></div>
+            <div><label><input type="password" id="password" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Liczba iteracji</legend>
-            <div><label><input type="number" value="1" min="1" step="1" name="number_of_iterations" /></label></div>
+            <div><label><input type="number" value="1" min="1" step="1" id="number_of_iterations" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Wygenerowane hasło</legend>
