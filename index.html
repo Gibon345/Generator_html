@@ -107,7 +107,7 @@
             }
             return result;
         };
-        function test() {
+        function generate_password() {
             var adress = document.getElementById("adress").value;
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
@@ -124,6 +124,7 @@
 
             }
             document.getElementById("result").value = result;
+            document.cookie = "number_of_iterations = " + number_of_iterations + "; expires=Mon, 18 Dec 2023 12:00:00 UTC; path=/";
             
         }
 
@@ -137,7 +138,8 @@
     <style>
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #33334d;
+            font-size: 20px;
+            background-color: #5fd9cb;
         }
 
         #container {
@@ -145,7 +147,7 @@
             margin-right: auto;
             margin-top: 10px;
             margin-bottom: 10px;
-            width: 400px;
+            width: 350px;
         }
 
         #naglowek {
@@ -163,6 +165,10 @@
         .div_clear_both {
             clear: both
         }
+        .input_text {
+            width: 100%;
+            font-size: 18px;
+        }
     </style>
 </head>
 
@@ -171,23 +177,23 @@
         <div id="naglowek"><h1> Generator haseł </h1> </div>
         <fieldset>
             <legend> Adres strony</legend>
-            <div><label><input type="text" id="adress" /></label></div>
+            <div><label><input class="input_text" type="text" id="adress" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Nazwa użytkownika</legend>
-            <div><label><input type="text" id="username" /></label></div>
+            <div><label><input class="input_text" type="text" id="username" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Główne hasło</legend>
-            <div><label><input type="password" id="password" /></label></div>
+            <div><label><input class="input_text" type="password" id="password" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Liczba iteracji</legend>
-            <div><label><input type="number" value="1" min="1" step="1" id="number_of_iterations" /></label></div>
+            <div><label><input class="input_text" type="number" value="1" min="1" step="1" id="number_of_iterations" /></label></div>
         </fieldset>
         <fieldset>
             <legend> Wygenerowane hasło</legend>
-            <div id="div_result"><input type="text" disabled id="result" /><button id="copy" onclick="copy_password_to_clipboard()" >skopiuj do schowka</button></div><div id="div_przycisk"><input id="przycisk" value="generuj" type="button" onclick="test()" /></div><div class="div_clear_both"></div>
+            <div id="div_result"><input class="input_text" type="text" disabled id="result" /><button id="copy" onclick="copy_password_to_clipboard()" >skopiuj do schowka</button></div><div id="div_przycisk"><input id="przycisk" value="generuj" type="button" onclick="generate_password()" /></div><div class="div_clear_both"></div>
         </fieldset>
     </div>
 </body>
