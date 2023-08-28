@@ -113,7 +113,10 @@
             var password = document.getElementById("password").value;
             var number_of_iterations = document.getElementById("number_of_iterations").value;
             var s = adress + username + password;
-            var h = sha256(s).toString();
+            for (let i = 0; i < number_of_iterations; i++) {
+                var h = sha256(s);
+                s = h;
+            }
             var result = "";
             for (let i = 0; i < h.length / 2; i++) {
                 var n = (h.charCodeAt(2 * i) * 7 + h.charCodeAt(2 * i + 1) * 15) % (126 - 48);
