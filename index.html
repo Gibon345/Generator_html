@@ -120,7 +120,7 @@
                 result += String.fromCharCode(n+48);
 
             }
-            document.getElementById("result").innerHTML = result;
+            document.getElementById("result").value = result;
             
         }
     </script>
@@ -165,7 +165,7 @@
         </fieldset>
         <fieldset>
             <legend> Wygenerowane hasło</legend>
-            <div><div id="result"></div><label><input id="przycisk" value="generuj" type="button" onclick="test()" /></label></div>
+            <div><input type="text" disabled id="result" /><label><input id="przycisk" value="generuj" type="button" onclick="test()" /></label></div>
         </fieldset>
     </div>
 </body>
