@@ -127,7 +127,7 @@
             
         }
         function copy_password_to_clipboard() {
-            var result = document.getElementById("result").value;
+            var result = document.getElementById("result");
             result.select();
             result.setSelectionRange(0,99999);
             navigator.clipboard.writeText(result);
