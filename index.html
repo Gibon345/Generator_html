@@ -112,10 +112,15 @@
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
             var number_of_iterations = document.getElementById("number_of_iterations").value;
-            var s = adress + username + password + number_of_iterations;
-            var h = sha256(s);
+            var s = adress + username + password;
+            var h = sha256(s).toString();
+            var result = "";
+            for (let i = 0; i < h.length / 2; i++) {
+                var n = (h.charCodeAt(2 * i) * 7 + h.charCodeAt(2 * i + 1) * 15) % (126 - 48);
+                result += String.fromCharCode(n+48);
 
-            document.getElementById("result").innerHTML = h;
+            }
+            document.getElementById("result").innerHTML = result;
             
         }
     </script>
