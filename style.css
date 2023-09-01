@@ -22,22 +22,23 @@ body {
     background-color: #bdf2ff;
 }
 
-#naglowek {
+#title {
     text-align: center;
 }
 
-#div_przycisk {
+#div_button {
     float: left;
     margin-right: 0px;
     margin-left: 0px;
 }
 
 #div_result {
-    width: 150px;
+    width: 200px;
     float: left;
 }
 
 #result {
+    width: 100%;
     cursor: not-allowed;
 }
 

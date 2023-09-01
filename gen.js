@@ -1,7 +1,21 @@
 function onload() {
-    var language = window.navigator.userLanguage || window.navigator.language;
     var cookie = JSON.parse(document.cookie);
     document.getElementById("number_of_iterations").value = cookie["number_of_iterations"];
+
+    var language = window.navigator.userLanguage || window.navigator.language;
+    switch (language) {
+        case "pl":
+            document.getElementById("title").innerHTML = "Generator haseł";
+            document.getElementById("legend_adress").innerHTML = "Adres strony";
+            document.getElementById("legend_username").innerHTML = "Nazwa użytkownika";
+            document.getElementById("legend_main_password").innerHTML = "Główne hasło";
+            document.getElementById("legend_number_of_iterations").innerHTML = "Liczba iteracji";
+            document.getElementById("number_of_iterations_tooltip").innerHTML = "Lorem ipsum";
+            document.getElementById("legend_result").innerHTML = "Wygenerowane hasło";
+            document.getElementById("button").value = "Generuj";
+            document.getElementById("copy_to_clipboard_text").innerHTML = "Skopiuj do schowka";
+        default:
+    }
 }
 
 function sha256(ascii) { //from https://github.com/geraintluff/sha256

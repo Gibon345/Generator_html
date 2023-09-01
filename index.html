@@ -16,28 +16,30 @@
 
 <body onload="onload()">
     <div id="container">
-        <div id="naglowek"><h1> Generator haseł </h1> </div>
+        <div><h1 id="title"> Password Generator </h1> </div>
         <fieldset>
-            <legend> Adres strony</legend>
+            <legend id="legend_adress"> Adress </legend>
             <div><label><input class="input_text" type="text" id="adress" /></label></div>
         </fieldset>
         <fieldset>
-            <legend> Nazwa użytkownika</legend>
+            <legend id="legend_username"> Username </legend>
             <div><label><input class="input_text" type="text" id="username" /></label></div>
         </fieldset>
         <fieldset>
-            <legend> Główne hasło</legend>
+            <legend id="legend_main_password"> Main password </legend>
             <div><label><input class="input_text" type="password" id="password" /></label></div>
         </fieldset>
         <fieldset>
             <legend>
-                Liczba iteracji
+                <span id="legend_number_of_iterations">
+                    Number of iterations
+                </span>
                 <span class="tooltip">
                     <span class="material-symbols-outlined">
                         info
                     </span>
-                    <span class="tooltiptext">
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <span class="tooltiptext" id="number_of_iterations_tooltip">
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </span>
                 </span>
             </legend>
@@ -46,15 +48,15 @@
             </label>
         </fieldset>
         <fieldset>
-            <legend> Wygenerowane hasło</legend>
-            <div id="div_przycisk"><input id="przycisk" value="Generuj" type="button" onclick="generate_password()" /></div>
+            <legend id="legend_result"> Generated password </legend>
+            <div id="div_button"><input id="button" value="Generate" type="button" onclick="generate_password()" /></div>
             <div id="div_result"><input class="output_text" type="text" disabled id="result" /></div>
             <div class="div_clear_both"></div>
             <!--div id="div_progress"> <progress id="file" max="1000" value="720">70%</progress></!div-->
         </fieldset>
         <div id="div_copy"><button id="copy" onclick="copy_password_to_clipboard()"> <span class="material-symbols-outlined">
         inventory
-    </span>Skopiuj do schowka</button></div><div class="div_clear_both"></div>
+    </span><span id="copy_to_clipboard_text"> Copy to clipboard </span></button></div><div class="div_clear_both"></div>
     </div>
 </body>
 </html>
