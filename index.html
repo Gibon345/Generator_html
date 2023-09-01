@@ -16,47 +16,55 @@
 
 <body onload="onload()">
     <div id="container">
-        <div><h1 id="title"> Password Generator </h1> </div>
-        <fieldset>
-            <legend id="legend_adress"> Adress </legend>
-            <div><label><input class="input_text" type="text" id="adress" /></label></div>
-        </fieldset>
-        <fieldset>
-            <legend id="legend_username"> Username </legend>
-            <div><label><input class="input_text" type="text" id="username" /></label></div>
-        </fieldset>
-        <fieldset>
-            <legend id="legend_main_password"> Main password </legend>
-            <div><label><input class="input_text" type="password" id="password" /></label></div>
-        </fieldset>
-        <fieldset>
-            <legend>
-                <span id="legend_number_of_iterations">
-                    Number of iterations
-                </span>
-                <span class="tooltip">
+        <header>
+            <div><h1 id="title"> Password Generator </h1> </div>
+        </header>
+        <main>
+            <fieldset>
+                <legend id="legend_adress"> Adress </legend>
+                <div><label><input class="input_text" type="text" id="adress" /></label></div>
+            </fieldset>
+            <fieldset>
+                <legend id="legend_username"> Username </legend>
+                <div><label><input class="input_text" type="text" id="username" /></label></div>
+            </fieldset>
+            <fieldset>
+                <legend id="legend_main_password"> Main password </legend>
+                <div><label><input class="input_text" type="password" id="password" /></label></div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <span id="legend_number_of_iterations">
+                        Number of iterations
+                    </span>
+                    <span class="tooltip">
+                        <span class="material-symbols-outlined">
+                            info
+                        </span>
+                        <span class="tooltiptext" id="number_of_iterations_tooltip">
+                            Passing the password through the hash function multiple times makes the process more computationally expensive, so generating the passwords takes more time, but said password is harder to crack.
+                        </span>
+                    </span>
+                </legend>
+                <label>
+                    <input class="input_text" type="number" value="10000" min="1" step="1" id="number_of_iterations" />
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend id="legend_result"> Generated password </legend>
+                <div id="div_button"><input id="button" value="Generate" type="button" onclick="generate_password()" /></div>
+                <div id="div_result"><input class="output_text" type="text" disabled id="result" /></div>
+                <div class="div_clear_both"></div>
+                <!--div id="div_progress"> <progress id="file" max="1000" value="720">70%</progress></!div-->
+            </fieldset>
+            <div id="div_copy">
+                <button id="copy" onclick="copy_password_to_clipboard()">
                     <span class="material-symbols-outlined">
-                        info
-                    </span>
-                    <span class="tooltiptext" id="number_of_iterations_tooltip">
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </span>
-                </span>
-            </legend>
-            <label>
-                <input class="input_text" type="number" value="1" min="1" step="1" id="number_of_iterations" />
-            </label>
-        </fieldset>
-        <fieldset>
-            <legend id="legend_result"> Generated password </legend>
-            <div id="div_button"><input id="button" value="Generate" type="button" onclick="generate_password()" /></div>
-            <div id="div_result"><input class="output_text" type="text" disabled id="result" /></div>
-            <div class="div_clear_both"></div>
-            <!--div id="div_progress"> <progress id="file" max="1000" value="720">70%</progress></!div-->
-        </fieldset>
-        <div id="div_copy"><button id="copy" onclick="copy_password_to_clipboard()"> <span class="material-symbols-outlined">
-        inventory
-    </span><span id="copy_to_clipboard_text"> Copy to clipboard </span></button></div><div class="div_clear_both"></div>
+                        inventory
+                    </span><span id="copy_to_clipboard_text"> Copy to clipboard </span>
+                </button>
+            </div><div class="div_clear_both"></div>
+        </main>
     </div>
 </body>
 </html>

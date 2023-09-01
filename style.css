@@ -20,6 +20,7 @@ body {
     margin-bottom: 10px;
     width: 350px;
     background-color: #bdf2ff;
+    border-radius: 10px;
 }
 
 #title {
