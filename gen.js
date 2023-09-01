@@ -1,3 +1,9 @@
+function onload() {
+    var language = window.navigator.userLanguage || window.navigator.language;
+    var cookie = JSON.parse(document.cookie);
+    document.getElementById("number_of_iterations").value = cookie["number_of_iterations"];
+}
+
 function sha256(ascii) { //from https://github.com/geraintluff/sha256
     function rightRotate(value, amount) {
         return (value >>> amount) | (value << (32 - amount));
@@ -111,7 +117,11 @@ function generate_password() {
 
     }
     document.getElementById("result").value = result;
-    document.cookie = "number_of_iterations = " + number_of_iterations + "; expires=Mon, 18 Dec 2023 12:00:00 UTC; path=/";
+    var exdays = 180;
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    cookie = { "number_of_iterations": number_of_iterations };
+    document.cookie = JSON.stringify(cookie) + (!exdays ? "" : "; expires=" + exdate.toUTCString());
 
 }
 
