@@ -10,7 +10,7 @@ function onload() {
             document.getElementById("legend_username").innerHTML = "Nazwa użytkownika";
             document.getElementById("legend_main_password").innerHTML = "Główne hasło";
             document.getElementById("legend_number_of_iterations").innerHTML = "Liczba iteracji";
-            document.getElementById("number_of_iterations_tooltip").innerHTML = "Lorem ipsum";
+            document.getElementById("number_of_iterations_tooltip").innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
             document.getElementById("legend_result").innerHTML = "Wygenerowane hasło";
             document.getElementById("button").value = "Generuj";
             document.getElementById("copy_to_clipboard_text").innerHTML = "Skopiuj do schowka";
