@@ -1,14 +1,119 @@
 body {
     font-family: 'Lato', sans-serif;
-    background-color: gray;
+    font-size: 20px;
+    background: url(img/weather.png); /* Background pattern from subltlepatterns.com */
+    background-color: #bdf2ff; /* #5fd9cb;*/
 }
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20
+}
+
 #container {
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:10px;
-    margin-bottom:10px;
-    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 350px;
+    background-color: #bdf2ff;
 }
+
 #naglowek {
     text-align: center;
+}
+
+#div_przycisk {
+    float: left;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#div_result {
+    width: 150px;
+    float: left;
+}
+
+#result {
+    cursor: not-allowed;
+}
+
+#div_copy {
+    margin-right: 10px;
+    float: right;
+}
+
+.div_clear_both {
+    clear: both;
+}
+
+.input_text {
+    width: 290px;
+}
+
+input[type=text],
+input[type=password],
+input[type=button],
+input[type=number],
+button {
+    font-size: 18px;
+    padding: 5px;
+    background-color: white;
+    color: black;
+    border: 2px solid lightblue;
+    border-radius: 10px;
+}
+
+input[type=button],
+button {
+    cursor: pointer;
+}
+
+    input[type=button]:hover,
+    button:hover {
+        background-color: lightblue;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=button]:focus,
+    input[type=number]:focus,
+    button:focus {
+        outline-color: darkblue;
+    }
+
+fieldset {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: -50px;
+        left: 125%;
+        margin-left: -250px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+progress {
+    width: 100%;
 }
