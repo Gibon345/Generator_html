@@ -22,15 +22,20 @@
         <main>
             <fieldset>
                 <legend id="legend_adress"> Adress </legend>
-                <div><label><input class="input_text" type="text" id="adress" /></label></div>
+                <div><label><input class="input_text" type="text" id="adress" list="adresses" autocomplete="off"  onfocusout="suggest_usernames()" /></label></div>
+                <datalist id="adresses">
+                </datalist>
             </fieldset>
             <fieldset>
-                <legend id="legend_username"> Username </legend>
-                <div><label><input class="input_text" type="text" id="username" /></label></div>
+                <legend id="legend__username"> _username </legend>
+                <div><label><input class="input_text" type="text" id="_username" list="_usernames" autocomplete="off" /></label></div>
+                <datalist id="_usernames">
+                    <option value="dasdafefs" />
+                </datalist>
             </fieldset>
             <fieldset>
                 <legend id="legend_main_password"> Main password </legend>
-                <div><label><input class="input_text" type="password" id="password" /></label></div>
+                <div><label><input class="input_text" type="password" id="password" autocomplete="off" /></label></div>
             </fieldset>
             <fieldset>
                 <legend>
@@ -53,7 +58,7 @@
             <fieldset>
                 <legend id="legend_result"> Generated password </legend>
                 <div id="div_button"><input id="button" value="Generate" type="button" onclick="generate_password()" /></div>
-                <div id="div_result"><input class="output_text" type="text" disabled id="result" /></div>
+                <div id="div_result"><input class="output_text" type="text" readonly id="result" autocomplete="off" /></div>
                 <div class="div_clear_both"></div>
                 <!--div id="div_progress"> <progress id="file" max="1000" value="720">70%</progress></!div-->
             </fieldset>

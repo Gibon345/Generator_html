@@ -1,13 +1,16 @@
 function onload() {
     var cookie = JSON.parse(document.cookie);
     document.getElementById("number_of_iterations").value = cookie["number_of_iterations"];
+    for (var val in cookie) {
+        if (val != "number_of_iterations") document.getElementById("adresses").innerHTML += "<option value=\"" + val + "\">";
+    }
 
     var language = window.navigator.userLanguage || window.navigator.language;
     switch (language) {
         case "pl":
             document.getElementById("title").innerHTML = "Generator haseł";
             document.getElementById("legend_adress").innerHTML = "Adres strony";
-            document.getElementById("legend_username").innerHTML = "Nazwa użytkownika";
+            document.getElementById("legend__username").innerHTML = "Nazwa użytkownika";
             document.getElementById("legend_main_password").innerHTML = "Główne hasło";
             document.getElementById("legend_number_of_iterations").innerHTML = "Liczba iteracji";
             document.getElementById("number_of_iterations_tooltip").innerHTML = "Wielokrotne wykonywanie funkcji hashującej utrudnia złamanie hasła, ale zwiększa czas potrzebny na wygenerowanie go.";
@@ -15,6 +18,14 @@ function onload() {
             document.getElementById("button").value = "Generuj";
             document.getElementById("copy_to_clipboard_text").innerHTML = "Skopiuj do schowka";
         default:
+    }
+}
+function suggest__usernames() {
+    var cookie = JSON.parse(document.cookie);
+    var adress = document.getElementById("adress").value;
+    document.getElementById("_usernames").innerHTML = "";
+    for (var val in cookie[adress]) {
+        document.getElementById("_usernames").innerHTML += "<option value=\"" + cookie[adress][val] + "\">";
     }
 }
 
@@ -116,10 +127,10 @@ function sha256(ascii) { //from https://github.com/geraintluff/sha256
 };
 function generate_password() {
     var adress = document.getElementById("adress").value;
-    var username = document.getElementById("username").value;
+    var _username = document.getElementById("_username").value;
     var password = document.getElementById("password").value;
     var number_of_iterations = document.getElementById("number_of_iterations").value;
-    var s = adress + username + password;
+    var s = adress + _username + password;
     for (let i = 0; i < number_of_iterations; i++) {
         var h = sha256(s);
         s = h;
@@ -134,7 +145,14 @@ function generate_password() {
     var exdays = 180;
     var exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
-    cookie = { "number_of_iterations": number_of_iterations };
+    var cookie = JSON.parse(document.cookie);
+    cookie["number_of_iterations"] = number_of_iterations;
+    if (adress in cookie) {
+        cookie[adress].push(_username);
+    }
+    else {
+        cookie[adress] = [_username];
+    }
     document.cookie = JSON.stringify(cookie) + (!exdays ? "" : "; expires=" + exdate.toUTCString());
 
 }
